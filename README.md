@@ -10,7 +10,7 @@
 
 #### ES6
 
-```
+```js
 import React, {  useEffect } from 'react';
 import weekjs from 'weekjs';
 
@@ -108,12 +108,10 @@ export default props => {
 ### Use case (lang: PT-br)
 
 
-[![](https://i.ibb.co/JCJQjCr/print.png)](https://pandao.github.io/editor.md/examples/images/7.jpg "李健首张专辑《似水流年》封面")
+[![](https://i.ibb.co/JCJQjCr/print.png)](https://pandao.github.io/editor.md/examples/images/7.jpg "Olá Ônibus - Application for transport public in Campo Mourão City.")
 
 > 图为：李健首张专辑《似水流年》封面
                 
 ----
 
-
-
-###End, Thank you for getting here 
+End, Thank you for getting here 
