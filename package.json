@@ -1,10 +1,14 @@
 {
-  "name": "rollup-starter-lib",
+  "name": "weekjs",
   "version": "1.0.0",
   "main": "dist/weekjs.cjs.js",
   "module": "dist/weekjs.esm.js",
   "browser": "dist/weekjs.umd.js",
   "dependencies": {},
+  "author": {
+    "name": "Igor Pancheski",
+    "email": "igorpraxedeslinux@gmail.com"
+  },
   "devDependencies": {
     "rollup": "^1.20.0",
     "rollup-plugin-commonjs": "^10.0.0",
