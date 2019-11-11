@@ -53,7 +53,7 @@ export default props => {
         <mate charest="utf-8" />
         <title>WeeksJS!</title>
     </head>
-	<script src="https://cdn.jsdelivr.net/npm/weeksjs@1.0.0/dist/weekjs.umd.js">
+	<script src="https://cdn.jsdelivr.net/npm/weeksjs@1.0.1/dist/weeksjs.umd.js">
     </script>
     <script>
 
