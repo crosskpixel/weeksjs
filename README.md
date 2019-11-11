@@ -2,8 +2,6 @@
 
 -You should create a timetable for weekdays, for example, during a week, and set the times for public transit boarding points, but they will not occur every day of the week other than holidays. I worked out a way to know the days of the week using bank numbers, where you can retrieve an object with the days of the week beyond the number.
 
-
-
 #### Install
 
 `$ npm install --save weekjs`
@@ -12,12 +10,12 @@
 
 ```js
 import React, {  useEffect } from 'react';
-import weekjs from 'weekjs';
+import weeksjs from 'weekjs';
 
 export default props => {
 
 	useEffect(() => {
-		console.log(weekjs.getDaysOfWeek());
+		console.log(weeksjs.getDaysOfWeek());
 		 // {
         //     friday: { bin: 32 }
         //     holiday: { bin: 128 }
@@ -28,7 +26,7 @@ export default props => {
         //     tuesday: { bin: 4 }
         //     wednesday: { bin: 8 }
         // };
-		console.log(weekjs.intToWeek(255));
+		console.log(weeksjs.intToWeek(255));
 		// {
         //     friday: true
         //     holiday: false
@@ -53,9 +51,9 @@ export default props => {
 <html>
     <head>
         <mate charest="utf-8" />
-        <title>WeekJS!</title>
+        <title>WeeksJS!</title>
     </head>
-	<script src="./dist/weekjs.umd.js">
+	<script src="https://cdn.jsdelivr.net/npm/weeksjs@1.0.0/dist/weekjs.umd.js">
     </script>
     <script>
 
@@ -110,7 +108,7 @@ export default props => {
 
 [![](https://i.ibb.co/JCJQjCr/print.png)](https://pandao.github.io/editor.md/examples/images/7.jpg "Olá Ônibus - Application for transport public in Campo Mourão City.")
 
-> 图为：李健首张专辑《似水流年》封面
+> Olá Ônibus - Application for transport public in Campo Mourão City.
                 
 ----
 

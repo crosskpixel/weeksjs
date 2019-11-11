@@ -1,9 +1,9 @@
 {
-  "name": "weekjs",
+  "name": "weeksjs",
   "version": "1.0.0",
-  "main": "dist/weekjs.cjs.js",
-  "module": "dist/weekjs.esm.js",
-  "browser": "dist/weekjs.umd.js",
+  "main": "dist/weeksjs.cjs.js",
+  "module": "dist/weeksjs.esm.js",
+  "browser": "dist/weeksjs.umd.js",
   "dependencies": {},
   "author": {
     "name": "Igor Pancheski",
