@@ -8,7 +8,7 @@ export default [
 	{
 		input: 'src/main.js',
 		output: {
-			name: 'weekjs',
+			name: 'weeksjs',
 			file: pkg.browser,
 			format: 'umd'
 		},

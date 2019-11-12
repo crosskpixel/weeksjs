@@ -1,60 +1,62 @@
 var days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "holiday"];
 var binValue = [1, 2, 4, 8, 16, 32, 64, 128];
-
 export default {
-	getDaysOfWeek: function (insertValues) {
-		return days.reduce(function (prev, day, i) {
-			prev[String(day)] = {
+	_calc: function (arr) {
+		return arr.reduce(function (pv, cur) {
+			var i = days.indexOf(String(cur).toLowerCase());
+			if (i === -1) throw new Error("Weeksjs::The given day is not supported\nVALUE INCORRECT=" + cur);
+			pv += binValue[i];
+			return pv;
+		}, 0);
+	},
+	_dayWeeks: function () {
+		return days.reduce(function (prev, d, i) {
+			d = String(d)
+			prev[d] = {
 				bin: binValue[i]
 			};
-			if (insertValues) {
-				prev[String(day)].value = true;
-			}
+			prev[d].value = true;
 			return prev;
 		}, {});
 	},
-	intToWeek: function (value, options) {
-		if (!Number.isInteger(value) || Number(value) > 255 || Number(value < 0)) {
-			console.warn("Week.js::Value must be in the range 0 to 255");
-			return;
+	getDaysOfWeek: function () {
+		return days.map(function (d, i) {
+			return {
+				"day": d,
+				"value": binValue[i]
+			}
+		});
+	},
+	intToWeek: function (v, opt) {
+		v = Number(v);
+		if (!Number.isInteger(v) || v > 255 || v < 0) {
+			throw new Error("Week.js::Value must be in the range 0 to 255");
 		}
-		var splitedBinary = ((255 - value) >>> 0)
+		var bin = ((255 - v) >>> 0)
 			.toString(2)
 			.split('')
 			.reverse();
-		var days = this.getDaysOfWeek(true);
-		var result = Object.keys(days).reduce(function (prev, next, i) {
-			prev[next] = {
-				value: !parseInt(splitedBinary[i]),
-				bin: days[next].bin
-			};
-			return prev;
+		var r = Object.keys(this._dayWeeks()).reduce(function (pv, cur, i) {
+			pv[cur] = !parseInt(bin[i])
+			return pv;
 		}, {});
+		if (opt && opt.array)
+			return Object.keys(r).map(function (day) {
+				var o = {};
+				o["day"] = day;
+				o["value"] = r[day];
+				return o;
+			})
+		return r;
+	},
+	weekToInt: function (arg) {
+		if (Array.isArray(arg))
+			return this._calc(arg);
+		if (typeof arg == 'object')
+			return this._calc(Object.keys(arg).filter(function (d) {
+				return arg[d];
+			}));
 
-		if (options && options.array) {
-			result = Object.keys(result).map(function (day) {
-				var obj = {};
-				obj[day] = day;
-				obj["value"] = result[day].value;
-				obj["bin"] = result[day].bin;
-			}).sort(function (a, b) {
-				return a.bin - b.bin;
-			});
-		}
-
-		if (options && options.showBin == true) {
-			return result;
-		} else {
-			if (typeof result == 'array') {
-				return result.map(function (obj) {
-					delete obj.bin
-					return obj;
-				})
-			}
-			return Object.keys(result).reduce(function (prev, cur) {
-				prev[cur] = result[cur].value;
-				return prev;
-			}, {})
-		}
-	}
+		throw new Error("Weeksjs::The given data type is not valid");
+	},
 }

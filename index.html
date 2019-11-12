@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="./dist/weekjs.umd.js">
+    <script src="./dist/weeksjs.umd.js">
     </script>
     <script>
 
         // ---------- Function getDaysOfWeek ---------- 
-        console.log(weekjs.getDaysOfWeek());
-        //  {
+        console.log(weeksjs.getDaysOfWeek());
+        // {
         //     friday: { bin: 32 }
         //     holiday: { bin: 128 }
         //     monday: { bin: 2 }
@@ -24,22 +24,31 @@
         // };
 
 
-        // ---------- Function getDaysOfWeek ---------- 
-        console.log(weekjs.getDaysOfWeek());
-        //  {
-        //     friday: { bin: 32 }
-        //     holiday: { bin: 128 }
-        //     monday: { bin: 2 }
-        //     saturday: { bin: 64 }
-        //     sunday: { bin: 1 }
-        //     thursday: { bin: 16 }
-        //     tuesday: { bin: 4 }
-        //     wednesday: { bin: 8 }
-        // };
+        // ---------- Function intToWeek ---------- 
+        console.log(weeksjs.intToWeek(255, {
+            array: true
+        }));
+        // {
+        //     friday: true
+        //     holiday: false
+        //     monday: true
+        //     saturday: false
+        //     sunday: true
+        //     thursday: true
+        //     tuesday: true
+        //     wednesday: true
+        // } 
 
 
+        console.log(weeksjs.weekToInt({
+            monday: true,
+            wednesday: true,
+            saturday: true
+        }));
+        // //or
+        console.log(weeksjs.weekToInt(["monday", "wednesday", "saturday"]));
+    </script>
 
-        console.log(weekjs.intToWeek(63));</script>
 </head>
 
 <body>
