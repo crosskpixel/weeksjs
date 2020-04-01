@@ -1,3 +1,5 @@
+(under construction)
+
 ### Motivation
 
 I was supposed to create a list of the days of the week from which an event would happen and I needed something simple. I didn't find anything that pleased me, so I noticed that the binaries could help me, and I hope they help you too, this was all very new to me. , I did not believe this would be possible only with NxN relations to solve my problem, so with the help of colleagues and friends, we identified that operator BITWISE would solve our problem with the days of the week and a special holiday day.
