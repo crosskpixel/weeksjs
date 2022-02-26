@@ -152,8 +152,8 @@ export default props => {
 
 [![](https://i.ibb.co/JCJQjCr/print.png)](https://i.ibb.co/JCJQjCr/print.png "Olá Ônibus - Application for transport public in Campo Mourão City.")
 > Olá Ônibus - Application for transport public in Campo Mourão City.
+I an application for my hometown, we used the technology implemented in this utility library, to represent which days of the week the bus would pass at that time for that line of route, it was a leaner way to store the information and apparently more cohesive and easy to maintain and interpret. Through this project I realized that this could help other similar cases.
                 
 ----
 
-> End, Thank you for getting here 
-> Thanks Google translator
+> End, Thank you for getting here
