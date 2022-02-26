@@ -13,30 +13,31 @@
         // ---------- Function getDaysOfWeek ---------- 
         console.log(weeksjs.getDaysOfWeek());
         // {
-        //     friday: { bin: 32 }
-        //     holiday: { bin: 128 }
-        //     monday: { bin: 2 }
-        //     saturday: { bin: 64 }
         //     sunday: { bin: 1 }
-        //     thursday: { bin: 16 }
+        //     monday: { bin: 2 }
         //     tuesday: { bin: 4 }
         //     wednesday: { bin: 8 }
+        //     thursday: { bin: 16 }
+        //     friday: { bin: 32 }
+        //     saturday: { bin: 64 }
+        //     holiday: { bin: 128 }
         // };
 
+        
 
         // ---------- Function intToWeek ---------- 
-        console.log(weeksjs.intToWeek(255, {
+        console.log(weeksjs.intToWeek(1+ 2 + 4 + 8 + 16 + 32, {
             array: true
         }));
         // {
-        //     friday: true
-        //     holiday: false
-        //     monday: true
-        //     saturday: false
         //     sunday: true
-        //     thursday: true
+        //     monday: true
         //     tuesday: true
         //     wednesday: true
+        //     thursday: true
+        //     friday: true        
+        //     saturday: false
+        //     holiday: false
         // } 
 
 

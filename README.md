@@ -86,30 +86,31 @@ export default props => {
         // ---------- Function getDaysOfWeek ---------- 
         console.log(weeksjs.getDaysOfWeek());
         // {
-        // {day: "sunday", value: 1}
-        // {day: "monday", value: 2}
-        // {day: "tuesday", value: 4}
-        // {day: "wednesday", value: 8}
-        // {day: "thursday", value: 16}
-        // {day: "friday", value: 32}
-        // {day: "saturday", value: 64}
-        // {day: "holiday", value: 128}
+        //     sunday: { bin: 1 }
+        //     monday: { bin: 2 }
+        //     tuesday: { bin: 4 }
+        //     wednesday: { bin: 8 }
+        //     thursday: { bin: 16 }
+        //     friday: { bin: 32 }
+        //     saturday: { bin: 64 }
+        //     holiday: { bin: 128 }
         // };
 
+        
 
         // ---------- Function intToWeek ---------- 
-        console.log(weeksjs.intToWeek(255, {
+        console.log(weeksjs.intToWeek(1+ 2 + 4 + 8 + 16 + 32, {
             array: true
         }));
         // {
-        //     friday: true
-        //     holiday: false
-        //     monday: true
-        //     saturday: false
         //     sunday: true
-        //     thursday: true
+        //     monday: true
         //     tuesday: true
         //     wednesday: true
+        //     thursday: true
+        //     friday: true        
+        //     saturday: false
+        //     holiday: false
         // } 
 
 
@@ -118,11 +119,8 @@ export default props => {
             wednesday: true,
             saturday: true
         }));
-        // return 74
         // //or
         console.log(weeksjs.weekToInt(["monday", "wednesday", "saturday"]));
-        // return 74
-
     </script>
 </html>
 ```
