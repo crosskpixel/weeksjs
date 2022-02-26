@@ -34,35 +34,35 @@ export default props => {
 		// ---------- Function getDaysOfWeek ---------- 
         console.log(weeksjs.getDaysOfWeek());
         // {
-        // {day: "sunday", value: 1}
-        // {day: "monday", value: 2}
-        // {day: "tuesday", value: 4}
-        // {day: "wednesday", value: 8}
-        // {day: "thursday", value: 16}
-        // {day: "friday", value: 32}
-        // {day: "saturday", value: 64}
-        // {day: "holiday", value: 128}
-        // };
+        //     sunday: { bin: 1 }
+        //     monday: { bin: 2 }
+        //     tuesday: { bin: 4 }
+        //     wednesday: { bin: 8 }
+        //     thursday: { bin: 16 }
+        //     friday: { bin: 32 }
+        //     saturday: { bin: 64 }
+        //     holiday: { bin: 128 }
+        //}
 
 
         // ---------- Function intToWeek ---------- 
         console.log(weeksjs.intToWeek(255);
         // {
-        //     friday: true
-        //     holiday: false
-        //     monday: true
-        //     saturday: false
         //     sunday: true
-        //     thursday: true
+        //     monday: true
         //     tuesday: true
         //     wednesday: true
+        //     thursday: true
+        //     friday: true        
+        //     saturday: false
+        //     holiday: false
         // } 
         console.log(weeksjs.weekToInt({
             monday: true,
             wednesday: true,
             saturday: true
         }));
-        // //or
+        // Return of Fuction is 74
         console.log(weeksjs.weekToInt(["monday", "wednesday", "saturday"]));
 	}, []);
 
@@ -113,13 +113,15 @@ export default props => {
         //     holiday: false
         // } 
 
+        
+
 
         console.log(weeksjs.weekToInt({
             monday: true,
             wednesday: true,
             saturday: true
         }));
-        // //or
+        // Return of Fuction is 74
         console.log(weeksjs.weekToInt(["monday", "wednesday", "saturday"]));
     </script>
 </html>
@@ -129,20 +131,19 @@ export default props => {
 
 | Functions | Description                    |
 | ------------- | ------------------------------ |
-| `getDaysOfWeek()`      |  return `{ "day" : "monday", value: 1 }`	     |
+| `getDaysOfWeek()`      |  return `[{ "day" : "monday", value: 1 }, monday: { bin: 2 }, ..., holiday: { bin: 128 }]`	     |
 | `intToWeek( sum, options )`   | Pass as the sum of your binaries and receive an object representing the days of the week  `{  "sunday" : true, monday:true,.. }`   |
 | `weekToInt( object || array )`   | Search the binary values ​​of the entered days and perform a sum.  `int`   |
 
 | intToWeek | Description                    |
 | ------------- | ------------------------------ |
 | `sum`      |  The binary sum of the selected days |
-| `options.array`   |  Returns the Object Result changed to Array[Object]    |
+| `options.array`   |  set true if response of funcions is an array  |
 
 | weekToInt | Description                    |
 | ------------- | ------------------------------ |
 | `object`      |  { `{ "monday": true, "holiday": true} ` } |
 | `array`   |  `["monday", "holiday"]`  |
-
 
 ----
 
