@@ -20,13 +20,13 @@ https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Bitw
 
 #### Install
 
-`$ npm install --save weekjs`
+`$ npm install --save weeksjs`
 
 #### ES6
 
 ```js
 import React, {  useEffect } from 'react';
-import weeksjs from 'weekjs';
+import weeksjs from 'weeksjs';
 
 export default props => {
 
