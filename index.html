@@ -6,54 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <script src="./dist/weeksjs.umd.js">
     </script>
     <script>
-
-        // ---------- Function getDaysOfWeek ---------- 
         console.log(weeksjs.getDaysOfWeek());
-        // {
-        //     sunday: { bin: 1 }
-        //     monday: { bin: 2 }
-        //     tuesday: { bin: 4 }
-        //     wednesday: { bin: 8 }
-        //     thursday: { bin: 16 }
-        //     friday: { bin: 32 }
-        //     saturday: { bin: 64 }
-        //     holiday: { bin: 128 }
-        // };
-
-        
-
-        // ---------- Function intToWeek ---------- 
-        console.log(weeksjs.intToWeek(1+ 2 + 4 + 8 + 16 + 32, {
+        console.log(weeksjs.intToWeek(1 + 2 + 4 + 8 + 16 + 32, {
             array: true
         }));
-        // {
-        //     sunday: true
-        //     monday: true
-        //     tuesday: true
-        //     wednesday: true
-        //     thursday: true
-        //     friday: true        
-        //     saturday: false
-        //     holiday: false
-        // } 
-
-
         console.log(weeksjs.weekToInt({
             monday: true,
             wednesday: true,
             saturday: true
         }));
-        // //or
-        console.log(weeksjs.weekToInt(["monday", "wednesday", "saturday"]));
     </script>
 
 </head>
 
-<body>
-
+<body  class="p-4"  >
+    <div id="selects">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="1"
+                id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Sunday (value = 1)</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="2" id="flexSwitchCheckChecked"
+                checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Monday (value = 2)</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="4" id="flexSwitchCheckChecked"
+                checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Tuesday (value = 4)</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="8" id="flexSwitchCheckChecked"
+                checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Wednesday (value = 8)</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="16"
+                id="flexSwitchCheckChecked" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Thursday (value = 16)</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="32"
+                id="flexSwitchCheckChecked" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Friday (value = 32)</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="64"
+                id="flexSwitchCheckChecked" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Saturday (value = 64)</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="128"
+                id="flexSwitchCheckChecked" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Holiday (value = 128)</label>
+        </div>
+    </div>
+    <div>
+        <p>Sum of Values Is <span id="result"></span></p>
+    </div>
 </body>
+<script>
+    function refreshView() {
+        document.getElementById(`result`).innerHTML = [...document.getElementById(`selects`).children].map(el => ({
+            name: el.children.item(1).innerHTML,
+            checked: el.children.item(0).checked,
+            value: Number(el.children.item(0).getAttribute(`data-bin-value`))
+        })).filter(s => s.checked).reduce((prev, cur) => prev + cur.value, 0);
+    }
+    refreshView();
+    [...document.getElementsByClassName(`form-check-input`)].forEach(inputRef => {
+        inputRef.addEventListener(`change`, () => {
+            refreshView();
+        })
+    })
+</script>
 
 </html>
