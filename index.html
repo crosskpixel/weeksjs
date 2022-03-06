@@ -26,67 +26,100 @@
     </script>
 
 </head>
+<style>
+    #hightlight-encode {
+        padding: 0em;
+        font-weight: bold;
+        font-family: monospace;
+        font-size: 1em;
+        color: #e84d7a;
+    }
+</style>
 
-<body  class="p-4"  >
+<body class="p-4">
 
-    
+
     <h2> WeeksJs</h2>
     <h5>Control the days of the week of a record using simple and light binary numbers</h5>
 
-    <hr/>
-    <div id="selects">
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="1"
-                id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Sunday (value = 1)</label>
+    <hr />
+
+    <div style="display: flex;">
+        <div id="selects">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" data-bin-value="1"
+                    data-name-value="sunday" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Sunday (value = 1)</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" data-bin-value="2"
+                    data-name-value="monday" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Monday (value = 2)</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" data-bin-value="4"
+                    data-name-value="tuesday" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Tuesday (value = 4)</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" data-bin-value="8"
+                    data-name-value="wednesday" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Wednesday (value = 8)</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" data-bin-value="16"
+                    data-name-value="thursday" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Thursday (value = 16)</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" data-bin-value="32"
+                    data-name-value="friday" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Friday (value = 32)</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" data-bin-value="64"
+                    data-name-value="saturday" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Saturday (value = 64)</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" data-bin-value="128"
+                    data-name-value="holiday" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Holiday (value = 128)</label>
+            </div>
         </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="2" id="flexSwitchCheckChecked"
-                checked>
-            <label class="form-check-label" for="flexSwitchCheckChecked">Monday (value = 2)</label>
+        <div id="hightlight-encode">
+
         </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="4" id="flexSwitchCheckChecked"
-                checked>
-            <label class="form-check-label" for="flexSwitchCheckChecked">Tuesday (value = 4)</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="8" id="flexSwitchCheckChecked"
-                checked>
-            <label class="form-check-label" for="flexSwitchCheckChecked">Wednesday (value = 8)</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="16"
-                id="flexSwitchCheckChecked" checked>
-            <label class="form-check-label" for="flexSwitchCheckChecked">Thursday (value = 16)</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="32"
-                id="flexSwitchCheckChecked" checked>
-            <label class="form-check-label" for="flexSwitchCheckChecked">Friday (value = 32)</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="64"
-                id="flexSwitchCheckChecked" checked>
-            <label class="form-check-label" for="flexSwitchCheckChecked">Saturday (value = 64)</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" data-bin-value="128"
-                id="flexSwitchCheckChecked" checked>
-            <label class="form-check-label" for="flexSwitchCheckChecked">Holiday (value = 128)</label>
-        </div>
+
     </div>
-    <div class="mt-3" >
-        <h5>Sum of Values Is <span id="result"></span></h5>
-    </div>
+
 </body>
 <script>
     function refreshView() {
-        document.getElementById(`result`).innerHTML = [...document.getElementById(`selects`).children].map(el => ({
-            name: el.children.item(1).innerHTML,
+
+        let list = [...document.getElementById(`selects`).children].map(el => ({
+            name: String(el.children.item(0).getAttribute(`data-name-value`)),
             checked: el.children.item(0).checked,
-            value: Number(el.children.item(0).getAttribute(`data-bin-value`))
-        })).filter(s => s.checked).reduce((prev, cur) => prev + cur.value, 0);
+            value: Number(el.children.item(0).getAttribute(`data-bin-value`)),
+
+        }))
+
+        let resultBin = list.filter(s => s.checked).reduce((prev, cur) => prev + cur.value, 0);
+
+        //document.getElementById(`result`).innerHTML = resultBin;
+
+        document.getElementById(`hightlight-encode`).innerHTML = `
+            <code>
+                let encodedWeeks = weeksjs.weekToInt({
+                    <br/>
+                    ${list.map(item => `&nbsp;&nbsp;&nbsp;${item.name}: ${String(item.checked)}`).join(`<br/>`)}
+                    <br/>
+                })
+                <br/>
+                console.log(encodedWeeks); //${resultBin}
+            </code>
+        `;
+
     }
     refreshView();
     [...document.getElementsByClassName(`form-check-input`)].forEach(inputRef => {
