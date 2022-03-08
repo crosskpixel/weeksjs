@@ -15,7 +15,7 @@ The days of the week are represented by each column of the table, the values ​
 Wednesday = 8 ...
 From this it is possible to use the bitwise operator to divide this integer, thus extracting the active days of the week.
 
-https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_AND
 
 
 #### Install
@@ -131,7 +131,7 @@ export default props => {
 
 | Functions | Description                    |
 | ------------- | ------------------------------ |
-| `getDaysOfWeek()`      |  return `[{ "day" : "monday", value: 1 }, monday: { bin: 2 }, ..., holiday: { bin: 128 }]`	     |
+| `getDaysOfWeek()`      |  return `[ monday: { bin: 2 }, ..., holiday: { bin: 128 }]`	     |
 | `intToWeek( sum, options )`   | Pass as the sum of your binaries and receive an object representing the days of the week  `{  "sunday" : true, monday:true,.. }`   |
 | `weekToInt( object || array )`   | Search the binary values ​​of the entered days and perform a sum.  `int`   |
 
