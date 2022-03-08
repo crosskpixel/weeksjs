@@ -106,8 +106,6 @@
 
         let resultBin = list.filter(s => s.checked).reduce((prev, cur) => prev + cur.value, 0);
 
-        //document.getElementById(`result`).innerHTML = resultBin;
-
         document.getElementById(`hightlight-encode`).innerHTML = `
             <code>
                 let encodedWeeks = weeksjs.weekToInt({

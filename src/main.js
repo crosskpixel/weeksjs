@@ -27,7 +27,7 @@ export default {
 			}
 		});
 	},
-	intToWeek: function (v, opt) {
+	_intToWeek: function (v, opt) {
 		v = Number(v);
 		if (!Number.isInteger(v) || v > 255 || v < 0) {
 			throw new Error("Week.js::Value must be in the range 0 to 255");
@@ -49,7 +49,7 @@ export default {
 			})
 		return r;
 	},
-	weekToInt: function (arg) {
+	_weekToInt: function (arg) {
 		if (Array.isArray(arg))
 			return this._calc(arg);
 		if (typeof arg == 'object')
@@ -59,4 +59,10 @@ export default {
 
 		throw new Error("Weeksjs::The given data type is not valid");
 	},
+	encode: function(arg) {
+		return this._intToWeek(arg);
+	},
+	decode: function(arg) {
+		return this._weekToInt(arg);
+	}
 }
