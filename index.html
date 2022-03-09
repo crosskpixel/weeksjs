@@ -101,7 +101,6 @@
             name: String(el.children.item(0).getAttribute(`data-name-value`)),
             checked: el.children.item(0).checked,
             value: Number(el.children.item(0).getAttribute(`data-bin-value`)),
-
         }))
 
         let resultBin = list.filter(s => s.checked).reduce((prev, cur) => prev + cur.value, 0);
@@ -123,8 +122,8 @@
     [...document.getElementsByClassName(`form-check-input`)].forEach(inputRef => {
         inputRef.addEventListener(`change`, () => {
             refreshView();
-        })
-    })
+        });
+    });
 </script>
 
 </html>
